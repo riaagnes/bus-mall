@@ -93,7 +93,7 @@ function randomImage(event){
   previousIndex3 = randomIndex3;
   allImages[previousIndex3].noOfDisplay++;
   console.log(allImages);
-  if(totalClicks>=2){
+  if(totalClicks>=25){
     image1.removeEventListener('click',randomImage);
     image2.removeEventListener('click',randomImage);
     image3.removeEventListener('click',randomImage);
