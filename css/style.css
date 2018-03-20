@@ -1,0 +1,11 @@
+body{
+  text-indent: 40px;
+}
+
+.images img{
+  width:300px;
+}
+
+ul{
+  list-style-type: circle;
+}
