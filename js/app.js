@@ -37,50 +37,31 @@ function Pic (filepath,name){
   imageNames.push(this.name);
 }
 
-function createInstance() {
+//make all image instances
 
-  sectionElement.addEventListener('click',clickHandler);
-  var picsAsString = localStorage.getItem('pictures');
-  var usablePics = JSON.parse(picsAsString);
-  if ( usablePics && usablePics.length ) {
-    allImages = usablePics;
-    //show list
-    showResult();
-    //updateVotes();
-   // display chart
-   // renderChart();
+new Pic('images/bag.jpg','Bag');
+new Pic('images/banana.jpg','Banana');
+new Pic('images/bathroom.jpg','Bathroom');
+new Pic('images/boots.jpg','Boots');
+new Pic('images/breakfast.jpg','Breakfast');
+new Pic('images/bubblegum.jpg','Bubblegum');
+new Pic('images/chair.jpg','Chair');
+new Pic('images/cthulhu.jpg','Cthulhu');
+new Pic('images/dog-duck.jpg','Dog-duck');
+new Pic('images/dragon.jpg','Dragon');
+new Pic('images/pen.jpg','Pen');
+new Pic('images/pet-sweep.jpg','Petsweep');
+new Pic('images/scissors.jpg','Scissors');
+new Pic('images/shark.jpg','Shark');
+new Pic('images/sweep.png','Sweep');
+new Pic('images/tauntaun.jpg','Tauntaun');
+new Pic('images/unicorn.jpg','Unicorn');
+new Pic('images/usb.gif','Usb');
+new Pic('images/water-can.jpg','Water-can');
+new Pic('images/wine-glass.jpg','Wine-glass');
 
-    return;
-    
-  }
+//randomImages();
 
-
-  //make all image instances
-
-  new Pic('images/bag.jpg','Bag');
-  new Pic('images/banana.jpg','Banana');
-  new Pic('images/bathroom.jpg','Bathroom');
-  new Pic('images/boots.jpg','Boots');
-  new Pic('images/breakfast.jpg','Breakfast');
-  new Pic('images/bubblegum.jpg','Bubblegum');
-  new Pic('images/chair.jpg','Chair');
-  new Pic('images/cthulhu.jpg','Cthulhu');
-  new Pic('images/dog-duck.jpg','Dog-duck');
-  new Pic('images/dragon.jpg','Dragon');
-  new Pic('images/pen.jpg','Pen');
-  new Pic('images/pet-sweep.jpg','Petsweep');
-  new Pic('images/scissors.jpg','Scissors');
-  new Pic('images/shark.jpg','Shark');
-  new Pic('images/sweep.png','Sweep');
-  new Pic('images/tauntaun.jpg','Tauntaun');
-  new Pic('images/unicorn.jpg','Unicorn');
-  new Pic('images/usb.gif','Usb');
-  new Pic('images/water-can.jpg','Water-can');
-  new Pic('images/wine-glass.jpg','Wine-glass');
-
-  //randomImages();
-}
-createInstance();
 //randomly display 3 pics.
 
 function randomImages(){
@@ -144,8 +125,6 @@ function clickHandler(event){
 
 
     sectionElement.removeEventListener('click',clickHandler);
-    var savePictures = JSON.stringify(allImages);
-    localStorage.setItem('pictures', savePictures);
 
     //show list
     showResult();
@@ -179,7 +158,7 @@ function updateVotes(){
   }
 }
 
-
+sectionElement.addEventListener('click', clickHandler);
 
 randomImages();
 
