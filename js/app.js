@@ -37,31 +37,56 @@ function Pic (filepath,name){
   imageNames.push(this.name);
 }
 
-//make all image instances
+function createInstance() {
 
-new Pic('images/bag.jpg','Bag');
-new Pic('images/banana.jpg','Banana');
-new Pic('images/bathroom.jpg','Bathroom');
-new Pic('images/boots.jpg','Boots');
-new Pic('images/breakfast.jpg','Breakfast');
-new Pic('images/bubblegum.jpg','Bubblegum');
-new Pic('images/chair.jpg','Chair');
-new Pic('images/cthulhu.jpg','Cthulhu');
-new Pic('images/dog-duck.jpg','Dog-duck');
-new Pic('images/dragon.jpg','Dragon');
-new Pic('images/pen.jpg','Pen');
-new Pic('images/pet-sweep.jpg','Petsweep');
-new Pic('images/scissors.jpg','Scissors');
-new Pic('images/shark.jpg','Shark');
-new Pic('images/sweep.png','Sweep');
-new Pic('images/tauntaun.jpg','Tauntaun');
-new Pic('images/unicorn.jpg','Unicorn');
-new Pic('images/usb.gif','Usb');
-new Pic('images/water-can.jpg','Water-can');
-new Pic('images/wine-glass.jpg','Wine-glass');
+  sectionElement.addEventListener('click',clickHandler);
+  var picsAsString = localStorage.getItem('pictures');
+  var usablePics = JSON.parse(picsAsString);
+  if ( usablePics && usablePics.length ) {
+    allImages = usablePics;
 
-//randomImages();
 
+    for(var i =0;i<allImages.length;i++){
+      imageNames[i]=allImages[i].name;
+    
+    }
+    //show list
+    // showResult();
+    //updateVotes();
+    // display chart
+    // renderChart();
+
+    return;
+
+  }
+
+
+  //make all image instances
+
+  new Pic('images/bag.jpg','Bag');
+  new Pic('images/banana.jpg','Banana');
+  new Pic('images/bathroom.jpg','Bathroom');
+  new Pic('images/boots.jpg','Boots');
+  new Pic('images/breakfast.jpg','Breakfast');
+  new Pic('images/bubblegum.jpg','Bubblegum');
+  new Pic('images/chair.jpg','Chair');
+  new Pic('images/cthulhu.jpg','Cthulhu');
+  new Pic('images/dog-duck.jpg','Dog-duck');
+  new Pic('images/dragon.jpg','Dragon');
+  new Pic('images/pen.jpg','Pen');
+  new Pic('images/pet-sweep.jpg','Petsweep');
+  new Pic('images/scissors.jpg','Scissors');
+  new Pic('images/shark.jpg','Shark');
+  new Pic('images/sweep.png','Sweep');
+  new Pic('images/tauntaun.jpg','Tauntaun');
+  new Pic('images/unicorn.jpg','Unicorn');
+  new Pic('images/usb.gif','Usb');
+  new Pic('images/water-can.jpg','Water-can');
+  new Pic('images/wine-glass.jpg','Wine-glass');
+
+  //randomImages();
+}
+createInstance();
 //randomly display 3 pics.
 
 function randomImages(){
@@ -75,11 +100,11 @@ function randomImages(){
 
   while(randomLeft === randomCenter || lastDisplayed.includes(randomLeft) ||lastDisplayed.includes(randomRight)||lastDisplayed.includes(randomCenter)||randomCenter === randomRight||randomLeft === randomRight) {
     console.log('Duplicate was caught!');
-    randomLeft = Math.floor(Math.random() * allImages.length);
+    randomLeft = Math.floor(Math.random() *allImages.length);
     console.log(randomLeft);
     randomRight = Math.floor(Math.random() * allImages.length);
     console.log(randomRight);
-    randomCenter = Math.floor(Math.random() * allImages.length);
+    randomCenter = Math.floor(Math.random() *allImages.length);
     console.log(randomCenter);
   }
 
@@ -125,6 +150,8 @@ function clickHandler(event){
 
 
     sectionElement.removeEventListener('click',clickHandler);
+    var savePictures = JSON.stringify(allImages);
+    localStorage.setItem('pictures', savePictures);
 
     //show list
     showResult();
@@ -158,7 +185,7 @@ function updateVotes(){
   }
 }
 
-sectionElement.addEventListener('click', clickHandler);
+
 
 randomImages();
 
