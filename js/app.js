@@ -171,7 +171,7 @@ function showResult(){
     // target/create li element
     var liElement = document.createElement('li');
     //content
-    liElement.textContent=allImages[i].name + ' has ' + allImages[i].votes + ' votes was displayed ' + allImages[i].timesDisplayed;
+    liElement.textContent=allImages[i].name + ' has ' + allImages[i].votes + ' votes and it was displayed ' + allImages[i].timesDisplayed+' times. ';
     //append
     listElement.appendChild(liElement);
 
@@ -192,9 +192,9 @@ randomImages();
 
 function renderChart(){
   var context = document.getElementById('busmall-chart').getContext('2d');
-  var arrayOfColors=['red','green','blue','yellow','gray','red','green','blue','yellow','gray','red','green','blue','yellow','gray','red','green','blue','yellow','gray','red','green','blue','yellow','gray'];
+  var arrayOfColors=['rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)'];
   new Chart(context, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
       labels:imageNames,
       datasets: [{
