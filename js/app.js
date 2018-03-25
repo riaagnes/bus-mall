@@ -160,7 +160,7 @@ function clickHandler(event){
 
     //display chart
     renderChart();
-
+    doughnut();
   }
   else{
     randomImages();
@@ -195,6 +195,31 @@ function renderChart(){
   var arrayOfColors=['rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)'];
   new Chart(context, {
     type: 'horizontalBar',
+    data: {
+      labels:imageNames,
+      datasets: [{
+        label: 'Votes Per Images',
+        data: imageVotes,
+        backgroundColor: arrayOfColors,
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+}
+
+function doughnut(){
+  var context = document.getElementById('doughnut-chart').getContext('2d');
+  var arrayOfColors=['rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)','rgb(255,157,157)','rgb(255,183,183)','rgb(255,195,195)','rgb(255,210,210)','rgb(255,225,225)'];
+  new Chart(context, {
+    type: 'pie',
     data: {
       labels:imageNames,
       datasets: [{
